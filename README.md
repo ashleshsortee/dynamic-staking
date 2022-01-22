@@ -1,7 +1,5 @@
 # Dynamic Staking on Ethereum
 
-[![N|Solid](https://logos-world.net/wp-content/uploads/2020/12/Ethereum-Logo.png)](https://goerli.etherscan.io/address/0xB767f1030d239FF3d84d3369A37312C714740cC8)
-
 For most common staking applications, the admin has to provide the estimated APY for the program for a certain period of time beforehand. With the dynamic staking approach, it calculates the APY dynamically for a particular stakeholder based on the number of stakeholders, their staked amount and the rewards which were added to the Staking contract address till that point of time. There is no lock-in time for the stakeholder's stake in this approach. Stakeholders can remove their stake at any point in time and can claim the rewards. Here the staking program is done for a dummy StakeToken(STK) which is an ERC20 token deployed on the Goerli network.
 
 The financial logic of the staking smart contract is to assign shares to each stakeholder and rewards are in proportion to the shares. Just like Mutual Funds derives the NAV(Net Asset Value) and it increases or decreases based on the shares and its asset value inside of it, the similar way the NAV in this case will be STK per share price which will increase as and when rewards are added to the staking program.
