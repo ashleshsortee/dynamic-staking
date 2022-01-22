@@ -15,10 +15,11 @@ dotenv.config();
 const config: HardhatUserConfig = {
   solidity: "0.8.6",
   networks: {
-    ropsten: {
+    goerli: {
       url: process.env.GOERLI_URL || "",
       accounts:
         process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+      gas: 2100000,
     },
   },
   gasReporter: {

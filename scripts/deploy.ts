@@ -7,7 +7,7 @@ async function main() {
 
   await stk.deployed();
 
-  console.log("StakingToken deployed to:", stk.address);
+  console.log('StakeToken deployed to:', stk.address);
 
   const Staking = await ethers.getContractFactory("Staking");
   const staking = await upgrades.deployProxy(
@@ -23,7 +23,15 @@ async function main() {
     }
   );
 
+  await staking.deployed();
+
   console.log("Staking deployed to:", staking.address);
+
+  const approvalTx = await stk.approve(staking.address, ethers.utils.parseUnits('100'));
+  console.log('approvalTx hash', approvalTx.hash);
+
+  const setInitialRatioTx = await staking.functions.setInitialRatio(ethers.utils.parseUnits('100'));
+  console.log('setInitialRatioTx hash', setInitialRatioTx.hash);
 }
 
 main().catch((error) => {
